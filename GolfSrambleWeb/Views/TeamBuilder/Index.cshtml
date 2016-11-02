@@ -1,0 +1,101 @@
+﻿@model IEnumerable<GolfSrambleWeb.Models.Players>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Team Builder</h2>
+
+@{
+    ViewBag.Title = "TEAM BUILDER";
+    WebGrid grid = new WebGrid(Model);
+}
+
+@{var myStyleSheet = "~/Shared/TeamBuilder.css";}
+<link rel="stylesheet" type="text/css" href="@Href(myStyleSheet)" />
+<form id="form1">
+    <h3 style="display:inline-block">Get Existing Players</h3>
+    <br/>
+    <div id="divgv" style="width:220px; background-color:lightgray; display:inline-block">
+        @grid.GetHtml(
+            htmlAttributes: new { id = "gridtable" },
+            tableStyle: "gridtable",
+            headerStyle: "gridtable-head",
+            selectedRowStyle: "clickable",
+            rowStyle: "clickable",
+            alternatingRowStyle: "gridtable-alt clickable",
+            
+            columns: new[]{
+                    grid.Column("Level", "  Level  "),
+                    grid.Column("FirstName", "  First Name  "),
+                    grid.Column("LastName", "  Last Name  ")
+            })
+        
+    </div>
+    <br />
+    <h3 style="display:inline-block">Add New Player</h3><br/>
+    <label>Enter Name</label>
+    <input type="Text" style="width:150px; background-color:lightgray;"/>
+    <label class="radio-inline">
+        <input type="radio" name="radioGroup" id="opt1" value="1">
+        Level A
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="radioGroup" id="opt2" value="2">
+        Level B
+    </label>
+    <label class="radio-inline">
+        <input type="radio" name="radioGroup" id="opt3" value="3">
+        Level C
+    </label>&nbsp; &nbsp;
+    <input type="button" value="Add"/>
+    <br/>
+    <br />
+    <Label ID="Label6" padding="20">Player A &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </Label><Label ID="Label7" border-right="100">Player B &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</Label><Label ID="Label8">Player C</Label><br />
+    <div style="align-content:center">
+        <ListBox id="lb1" style="height:100px; width:200px; background-color: white; display:inline-block; text-align:left;"> 
+            @*@foreach (var item in Model)
+            { 
+                @Html.DisplayFor(modelItem => item.FirstName)
+                <span> &nbsp; &nbsp; &nbsp;</span>
+                @Html.DisplayFor(modelItem => item.LastName)
+                <br />
+            }*@
+            
+        </ListBox>
+
+                
+
+        <ListBox id="lb2" style="height:100px; width:200px; background-color: white; display:inline-block; text-align:left;">
+
+        @*@foreach (var item in Model)
+        {
+            if (item.Level == "B")
+            {
+                @Html.DisplayFor(modelItem => item.FirstName)
+                <span> &nbsp; &nbsp; &nbsp;</span>
+                @Html.DisplayFor(modelItem => item.LastName)
+                <br />
+            }
+        }*@
+        </ListBox>
+
+        <ListBox id="lb3" style="height:100px; width:200px; background-color: white; display:inline-block; text-align:left;">
+
+            @*@foreach (var item in Model)
+            {
+                if (item.Level == "C")
+                {
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                    <span> &nbsp; &nbsp; &nbsp;</span>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                    <br />
+                }
+            }*@
+        </ListBox>
+    </div>
+    <br/>
+    <button>
+        @Html.ActionLink("Compile Teams", "addPlayer")
+    </button>
+</form>

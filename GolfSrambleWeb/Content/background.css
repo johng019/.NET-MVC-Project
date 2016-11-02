@@ -1,0 +1,26 @@
+﻿body {
+     background-image: url('content/hole_4_jpg.jpg');
+}
+/*WebGrid Styles*/
+gridtable thead,
+gridtable thead a:link,
+gridtable thead a:hover,
+gridtable thead a:visited,
+gridtable header
+{
+    color:#ffffff;
+    text-align:center;
+}
+gridtable tfoot,
+gridtable tfoot a:link,
+gridtable tfoot a:hover,
+gridtable tfoot a:visited
+{
+    text-align:center;
+    background-color:#ffffff;
+    color:white;
+}
+gridtable-alt
+{
+    background-color:#C0C0C0;
+}

@@ -1,0 +1,19 @@
+﻿@model IEnumerable<GolfSrambleWeb.Models.Playerz>
+
+@{
+    ViewBag.Title = "PlayerInfo";
+    WebGrid grid = new WebGrid(Model);
+}
+
+<h2>PlayerInfo</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@grid.GetHtml(columns: new []{
+    grid.Column("id"),
+    grid.Column("Level"),
+    grid.Column("FirstName", "First Name"),
+    grid.Column("LastName", "Last Name")
+})
+

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<GolfSrambleWeb.Models.Players>
+
+@{
+    ViewBag.Title = "Game On!";
+}
+@{var myStyleSheet = "~/Shared/TeamBuilder.css";}
+<link rel="stylesheet" type="text/css" href="@Href(myStyleSheet)" />
+
+<h2>Have a Great Game Golfers</h2>
+<table class="table" style = "height:auto ; width:auto">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td> 
+    </tr>
+}
+
+</table>

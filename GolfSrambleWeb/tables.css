@@ -1,0 +1,12 @@
+﻿body{
+    background-image: url('content/hole_4_jpg.jpg');
+}
+#div1 {
+    background-color:dimgrey;
+    text-align:center;
+    color:black;
+}
+h2{
+    text-align:center;
+    color:black;
+ }

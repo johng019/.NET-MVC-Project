@@ -1,0 +1,19 @@
+﻿body {
+    background-color:dimgrey;
+    text-align:center;
+    color:red;
+}
+#Label6 Label7 Label8 {
+    border-right: 50px;
+}
+#lbdiv{
+    height:200px;
+    width:450px;
+}
+ /*WebGrid Styles*/
+
+.gridtable-alt
+{
+    background-color:#C0C0C0;
+}
+  

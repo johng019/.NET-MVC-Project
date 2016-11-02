@@ -1,0 +1,76 @@
+﻿@model IEnumerable<GolfSrambleWeb.Models.Results>
+@using GolfSrambleWeb.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+@Styles.Render("~/tables.css")
+<div id="div1">
+
+    <h2>Player Results</h2>
+
+    <p>
+        @Html.ActionLink("Add Result", "Create")
+    </p>
+
+    @using (Html.BeginForm("Search", "Results"))
+    {
+        @Html.Editor("Searchbox")
+        <input type="submit" value="Search" />
+    }
+    <table class="table" id="MyTable">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Level)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Score)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Winnings)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.Truncate(item.LastName, 12)
+                    @*@Html.DisplayFor(modelItem => item.LastName)*@
+                </td>
+                <td>
+                    @Html.Truncate(item.FirstName, 8)
+                    @*@Html.DisplayFor(modelItem => item.FirstName)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Level)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Winnings)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ResultsId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ResultsId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ResultsId })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
